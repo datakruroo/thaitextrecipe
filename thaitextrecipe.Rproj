@@ -11,3 +11,8 @@ Encoding: UTF-8
 
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
+
+BuildType: Package
+PackageUseDevtools: Yes
+PackagePath: /Users/choat/Library/CloudStorage/OneDrive-ChulalongkornUniversity/Documents/R projects/thaitextrecipe
+PackageInstallArgs: --no-multiarch --with-keep.source
