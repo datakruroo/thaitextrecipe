@@ -8,6 +8,7 @@ thai_tokenizer(text, token_engine = "newmm", keep_whitespace = FALSE)
 \item{text}{ข้อความที่ต้องการตัดคำ}
 \item{token_engine}{เครื่องมือตัดคำ ค่าเริ่มต้นคือ "newmm" ผู้วิเคราะห์สามารถเปลี่ยนได้ตามเครื่องมือที่มีให้เลือกใช้ใน pythainlp}
 \item{keep_whitespace}{ถ้าเป็น TRUE จะเก็บช่องว่างไว้ด้วย ถ้าเป็น FALSE จะตัดช่องว่างออก}
+\item{custom_dict}{สำหรับระบุ custom dictionary เพิ่มเติมโดยผู้วิเคราะห์ โดยสามารถสร้างผ่านฟังก์ชัน custom_dict() พิมพ์ ?custom_dict() เพื่อดูรายละเอียด}
 }
 \description{
 
@@ -60,5 +61,14 @@ train_data <- data.frame(
 ### 2.2 recipe pre-processing
 textrec<- recipe(label ~ . , data=train_data) %>%
   step_tokenize(answers, custom_token = thai_tokenizer,
-                options = list(token_engine = "longest",))
+                options = list(token_engine = "longest", 
+                               keep_whitespace = TRUE))
+textrec %>% prep() %>% juice()
+# A tibble: 2 × 3
+     answers student_id label   
+   <tknlist>      <dbl> <fct>   
+1 [9 tokens]          1 Positive
+2 [9 tokens]          2 Negative
 }
+
+

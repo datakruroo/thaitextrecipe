@@ -1,8 +1,8 @@
 
 custom_dict <- function(my_dict, include_pythaidict = TRUE){
 if (!"pythainlp" %in% ls() ) {
+    library(reticulate)
     pythainlp<-import("pythainlp")
-    cat("importing pythainlp... \n ")
 }
 
 if (include_pythaidict == TRUE) {

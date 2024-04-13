@@ -1,14 +1,13 @@
-library(reticulate)
 
-thai_tokenizer <- function(text, token_engine = "newmm", keep_whitespace = FALSE,
-                           custom_dict = NULL) {
-  if (!"pythainlp" %in% ls() ) {
-    pythainlp<-import("pythainlp")
-    cat("importing pythainlp... \n ")
-  }
-  lapply(text, function(x){
-    tokens <- pythainlp$word_tokenize(x, engine = token_engine, keep_whitespace =  keep_whitespace,
+thai_tokenizer <- function(x, token_engine = "newmm", keep_whitespace = FALSE, custom_dict = NULL) {
+  library(reticulate)
+  pythainlp <- import("pythainlp")
+  
+  # Use lapply to apply the word_tokenize to each element in the text vector
+  tokens_list <- lapply(x, function(text) {
+    tokens <- pythainlp$word_tokenize(text, engine = token_engine, keep_whitespace = keep_whitespace,
                                       custom_dict = custom_dict)
     return(as.character(tokens))
   })
+  return(tokens_list)
 }
