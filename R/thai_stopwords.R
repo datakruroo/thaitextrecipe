@@ -16,4 +16,5 @@ def thai_stopword():
 py_run_string(thai_stopword_fn)
 th_stopwords <- tibble(word = py$thai_stopword(), lexicon = "PyThaiNLP")
 return(th_stopwords)
+
 }
