@@ -1,5 +1,5 @@
 # thaitextrecipe
-text preprocessing function ภาษาไทย สำหรับทำงานร่วมกับ library-textrecipes บน tidymodels framework 
+text preprocessing function ภาษาไทย สำหรับทำงานร่วมกับ `{textrecipes}` หรือ `{tidytext}` บน R ได้อย่างสะดวก
 
 ## การติดตั้ง library
 
