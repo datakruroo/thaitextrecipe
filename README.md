@@ -7,3 +7,5 @@ text preprocessing function ภาษาไทย สำหรับทำงา
 devtools::install_github("datakruroo/thaitextrecipe")
 library(thaitextrecipe)
 ```
+
+Note: พัฒนาเพื่อใช้ในการเรียนการสอนในหลักสูตรสถิติและวิทยาการข้อมูลการศึกษา คณะครุศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
